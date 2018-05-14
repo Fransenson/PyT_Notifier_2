@@ -24,8 +24,8 @@ Install Python 3: Follow the instructions on [the Python download page](https://
 ____
 
 
-### Step 2 - Download PyT_Notifier
-Download the current version of PyT_Notifier from the [release page here on GitHub](https://github.com/Fransenson/PyT_Notifier_2/releases)
+### Step 2 - Download PyT_Notifier_2
+Download the current version of PyT_Notifier_2 from the [release page here on GitHub](https://github.com/Fransenson/PyT_Notifier_2/releases)
 
 ____
 ### Step 3 - Change settings as needed
