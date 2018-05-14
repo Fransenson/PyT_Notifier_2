@@ -10,7 +10,7 @@ Open Source lightweight Telegram notifications for Profittrailer 2
 
 
 Future:
-* Custom designed messages
+* Custom designed messages..by you via the settings!
 * additional information via notifications outside of actual transaction
 
 ## Installation
