@@ -43,11 +43,16 @@ class LogData(object):
         return False
 
 def make_logdata(path):
-    with open(path, 'r') as myfile:
-            time = os.path.getmtime(path)
-            jsonData = myfile.read().replace('\n', '')
-            dataObject = json.loads(jsonData)
-    data = LogData(dataObject['sellLogData'],dataObject['gainLogData'],dataObject['dcaLogData'], time)
+    while True:
+        try:
+            with open(path, 'r') as myfile:
+                    time = os.path.getmtime(path)
+                    jsonData = myfile.read().replace('\n', '')
+                    dataObject = json.loads(jsonData)
+            data = LogData(dataObject['sellLogData'],dataObject['gainLogData'],dataObject['dcaLogData'], time)
+            break
+        except:
+            continue
     return data
 
 class TelegramBot(object):
