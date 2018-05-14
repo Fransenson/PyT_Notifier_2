@@ -141,16 +141,15 @@ alivecounter = 100
 while True:
     if alivecounter == 0:
         tprint("I am still alive and watching your trades, don't worry!")
-        alivecounter = 100
+        alivecounter = 50
     for i in range(0,len(Bots)):
         time.sleep(1)
         current_data = make_logdata(Bots[i].path)
         if (current_data.modtime != initial_data[i].modtime):
             if (current_data != initial_data[i]):
-                tprint("Change in JSON detected",end="\r")
                 # Sale
                 if (current_data.sales != initial_data[i].sales):
-                    tprint("It's a sale!")
+                    tprint("Found a sale!")
                     diff = len(current_data.sales)-len(initial_data[i].sales)
                     for x in range(0,diff):
                         Bots[i].sendmessage(compose_message(current_data.sales[x], 'sale', Bots[i].name))
@@ -164,11 +163,11 @@ while True:
                     for e in new_coins:
                         resultdata, kind= current_data.find_buy(e)
                         if (kind == 'PAIRS'):
-                            tprint("It's a buy!")
+                            tprint("Found a buy!")
                             Bots[i].sendmessage(compose_message(resultdata, 'buy', Bots[i].name))
                             tprint("Telegram message sent.")
                         elif (kind == 'DCA'):
-                            tprint("It's a DCA buy!")
+                            tprint("Found a DCA buy!")
                             Bots[i].sendmessage(compose_message(resultdata, 'dca', Bots[i].name))
                             tprint("Telegram message sent.")
                     initial_data[i] = current_data
