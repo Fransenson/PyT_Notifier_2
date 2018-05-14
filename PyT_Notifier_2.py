@@ -147,7 +147,7 @@ while True:
         current_data = make_logdata(Bots[i].path)
         if (current_data.modtime != initial_data[i].modtime):
             if (current_data != initial_data[i]):
-                tprint("Change in JSON detected\r",)
+                tprint("Change in JSON detected",end="\r")
                 # Sale
                 if (current_data.sales != initial_data[i].sales):
                     tprint("It's a sale!")
