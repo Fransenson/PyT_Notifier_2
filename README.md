@@ -56,7 +56,7 @@ ____
 ## Feedback
 Please report any issues here on GitHub. 
 
-If you want to buy me a coffee (or a sports car):
+If you want to buy me a coffee:
 
 BTC: 1Nswn7aKAgzCjeha6aJQrAhz5GRm8oSBSw
 
