@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "PyTN",
+      "script": "PyT_Notifier_2.py",
+      "cwd": ".",
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "exec_interpreter": "python3",
+      "autorestart": false,
+      "interpreter_args": "-u"
+    }
+  ]
+}
