@@ -135,6 +135,7 @@ for i in range(0,len(Bots)):
     tprint("Current DCA Entries: ", len(initial_data[i].dca), "\n")
     time.sleep(2)
 alivecounter = 100
+tprint("Starting to wait for transactions...")
 #### /INITIAL DATA PARSING ####
 
 #### MAIN ####
