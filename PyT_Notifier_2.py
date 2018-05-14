@@ -94,7 +94,7 @@ def compose_message(data, type, name):
         return message
     elif (type == 'buy'):
         coin = str(data['market'])
-        amount = str(data['totalAmount'])
+        amount = str(data['averageCalculator']['totalAmount'])
         avgprice = str(data['averageCalculator']['avgPrice'])
         totalcost = str(data['averageCalculator']['totalCost'])
         message = "\U0001F4B8"+instance+" *BOUGHT:*" + os.linesep + "`{0:<12}{1:>20}\n{2:<12}{3:>20}\n{4:<12}{5:>20}\n{6:<12}{7:>20}\n`".format("Coin:", coin, "Amount:", amount, "Avg. Price:",str(format(float(avgprice), '.8f')), "Total Cost:",str(format(float(totalcost), '.4f')))
@@ -102,9 +102,9 @@ def compose_message(data, type, name):
     elif (type == 'dca'):
         coin = str(data['market'])
         dca = str(data['boughtTimes'])
-        amount = str(data['totalAmount'])
         curprice = str(data['currentPrice'])
-        avgprice = str(data['averageCalculator']['avgPrice'])
+        amount = str(data['averageCalculator']['totalAmount'])
+    avgprice = str(data['averageCalculator']['avgPrice'])
         message = "\U0001F4B8\U0001F4B8 "+instance+"*BOUGHT DCA:*" + os.linesep + "`{0:<14}{1:>18}\n{2:<14}{3:>18}\n{4:<14}{5:>18}\n{6:<14}{7:>18}\n{8:<14}{9:>18}\n`".format("Coin:", coin, "Total amount:", amount, "Avg Price:",str(format(float(avgprice), '.8f')), "Current Price:",str(format(float(curprice), '.8f')), "DCA Level:", dca)
         return message
 
