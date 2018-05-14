@@ -37,11 +37,14 @@ To get your chat id, open a chat with your bot, visit `https://api.telegram.org/
 
 Please provide absolute paths to the needed JSON-Files. 
 
-Format for Bot instance: 
+Format for 1 bot instance: 
 ```
-{1: "name": "NameOfInstance", "path": "/path/to/ProfitTrailerData.json"}
+{0: {"name": "NameOfInstance", "path": "/path/to/ProfitTrailerData.json"}}
 ```
-
+Format for multiple bot instances: 
+```
+{0: {"name": "NameOfInstance", "path": "/path/to/ProfitTrailerData.json"}, 1: {"name": "NameOfInstance2", "path": "/path/to/second/ProfitTrailerData.json"}}
+```
 
 ____
 ### Step 4 - Run!
