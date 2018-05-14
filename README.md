@@ -58,9 +58,9 @@ Please report any issues here on GitHub.
 
 If you want to buy me a coffee (or a sports car):
 
-BTC: 15Xh2nAhXqSkTMczRt6g8HFGtuzE7Keab7
+BTC: 1Nswn7aKAgzCjeha6aJQrAhz5GRm8oSBSw
 
-ETH: 0x1a635457f7773fcb2c0e9001669eb540672a240f
+ETH: 0xAfF067fdcaf965B7a31a6D7468FEf6300917a874
 
 Those would be tips/donations only. The software is distributed free of charge and I don't offer paid support. I will try to help where I can though!
 
