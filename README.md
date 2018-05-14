@@ -50,7 +50,7 @@ ____
 ### Step 4 - Run!
 Run the script via `python3 PyT_Notifier_2.py` in your terminal.
 
-If you are using pm2 just go with `pm2 start PyT_Notifier_2.py --interpreter python3`
+If you are using pm2 just go with `pm2 start PyT_Notifier_2.py --interpreter python3` or use the pm2 startup script I uploaded to this repo.
 
 ____
 ## Feedback
