@@ -147,13 +147,14 @@ while True:
         current_data = make_logdata(Bots[i].path)
         if (current_data.modtime != initial_data[i].modtime):
             if (current_data != initial_data[i]):
-                tprint("Change in JSON detected")
+                tprint("Change in JSON detected\r")
                 # Sale
                 if (current_data.sales != initial_data[i].sales):
                     tprint("It's a sale!")
                     diff = len(current_data.sales)-len(initial_data[i].sales)
                     for x in range(0,diff):
                         Bots[i].sendmessage(compose_message(current_data.sales[x], 'sale', Bots[i].name))
+                        tprint("Telegram message sent.")
                     initial_data[i] = current_data
                 # Pair and DCA
                 elif (current_data.pairs != initial_data[i].pairs) or (current_data.dca != initial_data[i].dca):
