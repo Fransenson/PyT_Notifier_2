@@ -172,10 +172,11 @@ while True:
                             Bots[i].sendmessage(compose_message(resultdata, 'buy', Bots[i].name))
                             tprint("Telegram message sent.")
                     else:
-                        for combination in itertools.zip_longest(current_data.dca, initial_data[i].dca):
-                            if (combination[0]['boughtTimes'] != combination[1]['boughtTimes']) and (combination[0]['market'] == combination[1]['market']):
-                                Bots[i].sendmessage(compose_message(combination[0], 'dca', Bots[i].name))
-                                tprint("Telegram message sent.")
+                        for pair in current_data.dca:
+                            for ini_pair in initial_data[i].dca:
+                                if (pair['market'] == ini_pair['market']) and (pair['boughtTimes'] != ini_pair['boughtTimes']):
+                                    Bots[i].sendmessage(compose_message(pair, 'dca', Bots[i].name))
+                                    tprint("Telegram message sent.")
                     initial_data[i] = current_data
         alivecounter -= 1
 
