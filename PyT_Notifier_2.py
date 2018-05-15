@@ -173,7 +173,7 @@ while True:
                             tprint("Telegram message sent.")
                     else:
                         for combination in itertools.zip_longest(current_data.dca, initial_data[i].dca):
-                            if combination[0]['boughtTimes'] != combination[1]['boughtTimes']:
+                            if (combination[0]['boughtTimes'] != combination[1]['boughtTimes']) and (combination[0]['market'] == combination[1]['market']):
                                 Bots[i].sendmessage(compose_message(combination[0], 'dca', Bots[i].name))
                                 tprint("Telegram message sent.")
                     initial_data[i] = current_data
