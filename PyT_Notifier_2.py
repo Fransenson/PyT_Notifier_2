@@ -84,7 +84,7 @@ def compose_message(data, type, name):
         dca = str(data['boughtTimes'])
         profit = str(data['profit'])
         strat = ''
-        if (len(data['sellStrategies'])==1):
+        if (len(data['sellStrategies']) == 1):
             strat = data['sellStrategies'][0]['name']
         else:
             for entry in data['sellStrategies']:
@@ -152,8 +152,9 @@ while True:
                 if (current_data.sales != initial_data[i].sales):
                     tprint("Found a sale!")
                     diff = len(current_data.sales)-len(initial_data[i].sales)
-                    for x in range(0,diff):
-                        Bots[i].sendmessage(compose_message(current_data.sales[x], 'sale', Bots[i].name))
+                    length = len(current_data.sales)
+                    for x in range(length,length-diff,-1):
+                        Bots[i].sendmessage(compose_message(current_data.sales[x-1], 'sale', Bots[i].name))
                         tprint("Telegram message sent.")
                     initial_data[i] = current_data
                 # Pair and DCA
