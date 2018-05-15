@@ -105,7 +105,7 @@ def compose_message(data, type, name):
         curprice = str(data['currentPrice'])
         amount = str(data['averageCalculator']['totalAmount'])
         avgprice = str(data['averageCalculator']['avgPrice'])
-        message = "\U0001F4B8\U0001F4B8 "+instance+"*BOUGHT DCA:*" + os.linesep + "`{0:<14}{1:>18}\n{2:<14}{3:>18}\n{4:<14}{5:>18}\n{6:<14}{7:>18}\n{8:<14}{9:>18}\n`".format("Coin:", coin, "Total amount:", amount, "Avg Price:",str(format(float(avgprice), '.8f')), "Current Price:",str(format(float(curprice), '.8f')), "DCA Level:", dca)
+        message = "\U0001F4B8\U0001F4B8 "+instance+" *BOUGHT DCA:*" + os.linesep + "`{0:<14}{1:>18}\n{2:<14}{3:>18}\n{4:<14}{5:>18}\n{6:<14}{7:>18}\n{8:<14}{9:>18}\n`".format("Coin:", coin, "Total amount:", amount, "Avg Price:",str(format(float(avgprice), '.8f')), "Current Price:",str(format(float(curprice), '.8f')), "DCA Level:", dca)
         return message
 
 
