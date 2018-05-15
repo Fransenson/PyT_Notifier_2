@@ -9,6 +9,7 @@ import settings
 
 #TO IMPELEMNT
 # - push price change after sale if price drops below sale price -> how many profit have you missed?
+# - instead of instantly pushing new transactions, set "changed"-Flags and operate those, afterwards set new initial data to prevent transactions from going missing
 
 
 #### CLASSES AND FUNCTIONS ####
@@ -32,14 +33,16 @@ class LogData(object):
                 if (combination[1]['market'] not in coinlist):
                     coinlist.append(combination[1]['market'])
         return coinlist
+
+    # needs rewrite
     def find_buy(self, coin):
         for combination in itertools.zip_longest(self.pairs, self.dca):
             if (combination[0] is not None):
                 if (combination[0]['market'] == coin):
-                    return combination[0], 'PAIR'
+                    return combination[0]
             if (combination[1] is not None):
                 if (combination[1]['market'] == coin):
-                    return combination[1], 'DCA'
+                    return combination[1]
         return False
 
 def make_logdata(path):
@@ -161,17 +164,18 @@ while True:
                 elif (current_data.pairs != initial_data[i].pairs) or (current_data.dca != initial_data[i].dca):
                     coinlist_initial = set(initial_data[i].make_coinlist())
                     coinlist_current = set(current_data.make_coinlist())
-                    new_coins    = coinlist_current-coinlist_initial
-                    for e in new_coins:
-                        resultdata, kind= current_data.find_buy(e)
-                        if (kind == 'PAIRS'):
+                    new_coins = coinlist_current-coinlist_initial
+                    if (coinlist_initial != coinlist_current):
+                        for e in new_coins:
+                            resultdata = current_data.find_buy(e)
                             tprint("Found a buy!")
                             Bots[i].sendmessage(compose_message(resultdata, 'buy', Bots[i].name))
                             tprint("Telegram message sent.")
-                        elif (kind == 'DCA'):
-                            tprint("Found a DCA buy!")
-                            Bots[i].sendmessage(compose_message(resultdata, 'dca', Bots[i].name))
-                            tprint("Telegram message sent.")
+                    else:
+                        for combination in itertools.zip_longest(current_data.dca, initial_data[i].dca):
+                            if combination[0]['boughtTimes'] != combination[1]['boughtTimes']:
+                                Bots[i].sendmessage(compose_message(combination[0], 'dca', Bots[i].name))
+                                tprint("Telegram message sent.")
                     initial_data[i] = current_data
         alivecounter -= 1
 
