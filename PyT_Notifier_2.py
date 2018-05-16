@@ -164,8 +164,8 @@ while True:
                 elif (current_data.pairs != initial_data[i].pairs) or (current_data.dca != initial_data[i].dca):
                     coinlist_initial = set(initial_data[i].make_coinlist())
                     coinlist_current = set(current_data.make_coinlist())
-                    new_coins = coinlist_current-coinlist_initial
-                    if (coinlist_initial != coinlist_current):
+                    if (len(coinlist_initial) < len(coinlist_current)):
+                        new_coins = coinlist_current-coinlist_initial
                         for e in new_coins:
                             resultdata = current_data.find_buy(e)
                             tprint("Found a buy!")
