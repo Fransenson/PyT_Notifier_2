@@ -178,7 +178,7 @@ while True:
                                 if (pair['market'] == ini_pair['market']) and (pair['boughtTimes'] != ini_pair['boughtTimes']):
                                     Bots[i].sendmessage(compose_message(pair, 'dca', Bots[i].name))
                                     tprint("Telegram message sent.")
-                        initial_data[i] = current_data
+                                    initial_data[i] = current_data
         alivecounter -= 1
 
 #### /MAIN ####
