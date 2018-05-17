@@ -172,13 +172,13 @@ while True:
                             Bots[i].sendmessage(compose_message(resultdata, 'buy', Bots[i].name))
                             tprint("Telegram message sent.")
                         initial_data[i] = current_data
-                    else:
+                    elif (len(coinlist_initial) == len(coinlist_current)):
                         for pair in current_data.dca:
                             for ini_pair in initial_data[i].dca:
                                 if (pair['market'] == ini_pair['market']) and (pair['boughtTimes'] != ini_pair['boughtTimes']):
                                     Bots[i].sendmessage(compose_message(pair, 'dca', Bots[i].name))
                                     tprint("Telegram message sent.")
-                                    initial_data[i] = current_data
+                        initial_data[i] = current_data
         alivecounter -= 1
 
 #### /MAIN ####
